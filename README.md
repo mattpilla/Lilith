@@ -6,9 +6,17 @@
 
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
-- Create `.env` at root of directory based on `.env.example`. `CLIENT_SECRET` uses the token from the previous step
+- Create `.env` at root of directory based on `.env.example`
+    - `CLIENT_SECRET` uses the token from the previous step
+    - `VOLUME` controls the volume of sounds played in a voice channel
 - `npm ci` to install dependencies
+    - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
 - `npm start` runs the bot!
+
+### Extra
+Assets aren't being tracked in this repo. Refer to the README in the `audio` directory for more info.
 
 ## Commands
 - `hey`: says hi
+- `.join`: joins your current voice channel and plays a sound clip
+- `.leave`: plays a sound clip then exits voice
