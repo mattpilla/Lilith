@@ -6,6 +6,7 @@
 
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
+- Invite your bot to your server (see [Extra](#extra) section for more info)
 - Create `.env` at root of directory based on `.env.example`
     - `CLIENT_SECRET` uses the token from the previous step
     - `VOLUME` (optional) controls the volume of sounds played in a voice channel
@@ -16,12 +17,13 @@
 - `npm start` runs the bot!
 
 ### Extra
-Assets aren't being tracked in this repo. Refer to the README in the `audio` directory for more info.
+- Permissions are tricky, so you can use [this link](https://discordapi.com/permissions.html#372759761) to generate your bot's invite link. My suggested permissions are set there but you can change them if you know what you're doing.
+- Assets aren't being tracked in this repo. Refer to the README in the `audio` directory for more info.
 
 ## Commands
 - `hey`: says hi
 - `.gameon`: gives user role specified by `GAME_ROLE_NAME` in `.env` (and creates it if it doesn't exist)
-- `.gameoff`: removes the role given by `.gameon`
+- `.gameoff`: removes the role given by `.gameon` from the user
 - `.join`: joins your current voice channel and plays a sound clip
 - `.leave`: plays a sound clip then exits voice
 
