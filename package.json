@@ -4,7 +4,7 @@
   "description": "highly custom discord bot",
   "main": "lilith.js",
   "scripts": {
-    "start": "nodemon lilith"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.2.7",
     "sodium": "^3.0.2"
+  },
+  "nodemonConfig": {
+    "watch": [".env"]
   }
 }

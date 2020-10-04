@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const volume = process.env.VOLUME || 0.5;
+const gameRoleName = process.env.GAME_ROLE_NAME || 'gamer';
+const gameRoleColor = process.env.GAME_ROLE_COLOR || '#c072fe';
 
 const playSound = (sound, connection) => {
     const dispatcher = connection.play(sound, {volume});
@@ -21,6 +23,35 @@ const onTextMessage = async message => {
 
     if (text === 'hey') {
         message.channel.send('hiya :)');
+    } else if (text === '.gameon') {
+        let role = message.guild.roles.cache.find(role => role.name === gameRoleName);
+        if (!role) {
+            try {
+                role = await message.guild.roles.create({
+                    data: {
+                        name: gameRoleName,
+                        color: gameRoleColor,
+                        mentionable: true
+                    }
+                });
+            } catch (e) {
+                message.channel.send(`sorry, i can't add the \`${gameRoleName}\` role so i can't give it to you`);
+                return;
+            }
+        } else if (message.member.roles.cache.find(role => role.name === gameRoleName)) {
+            message.channel.send(`you already have the \`${gameRoleName}\` role. oh well. Game On.`);
+            return;
+        }
+        await message.member.roles.add(role);
+        message.channel.send(`\`${gameRoleName}\` role added (remove it if you change your mind). Game on.`);
+    } else if (text === '.gameoff') {
+        const role = message.member.roles.cache.find(role => role.name === gameRoleName);
+        if (role) {
+            await message.member.roles.remove(role);
+            message.channel.send(`\`${gameRoleName}\` role removed. you could've done this yourself though`);
+        } else {
+            message.channel.send(`you already don't have the \`${gameRoleName}\` role so you're good`);
+        }
     } else if (text === '.join') {
         if (voiceChannel) {
             const connection = await voiceChannel.join();
