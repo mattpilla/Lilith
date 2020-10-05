@@ -1,5 +1,5 @@
 node_modules/
-.env
+config.json
 
 # ignore everything in these directories except their READMEs
 audio/*

@@ -1,77 +1,45 @@
-require('dotenv').config();
+const fs = require('fs');
 const Discord = require('discord.js');
+const { token, prefix } = require('./config.json');
+const { getConnection, playSound } = require('./helpers.js');
+
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
 
-const volume = process.env.VOLUME || 0.5;
-const gameRoleName = process.env.GAME_ROLE_NAME || 'gamer';
-const gameRoleColor = process.env.GAME_ROLE_COLOR || '#c072fe';
+const commandFiles = fs.readdirSync('./commands')
+    .filter(file => file.endsWith('.js'))
+    .forEach(file => {
+        const command = require(`./commands/${file}`);
+        client.commands.set(command.name, command);
+    });
 
-const playSound = (sound, connection) => {
-    const dispatcher = connection.play(sound, {volume});
-    dispatcher.on('error', console.error);
-    return dispatcher;
-};
-
-// helper function to return a voice connection based on id
-const getConnection = id => client.voice.connections.find(connection => connection.channel.id === id);
-
-const onTextMessage = async message => {
+const onTextMessage = message => {
     const text = message.content;
-    // args: array of [full text, command, everything after command]
-    const args = /^([^ ]+)(?: +(.+)$)?/.exec(text);
-    const voiceChannel = message.member.voice.channel;
-
-    if (text === 'hey') {
+    if (text.startsWith(prefix)) {
+        const args = text.slice(prefix.length).split(/\s+/);
+        const commandName = args.shift().toLowerCase();
+        const command = client.commands.get(commandName);
+        if (!command) {
+            return; // exit if command doesn't exist
+        }
+        if (command.exact && args.length) {
+            return; // exit if command expects no args but args are given
+        }
+        try {
+            command.execute(message, args);
+        } catch (e) {
+            console.error(e);
+        }
+    } else if (text === 'hey') {
         message.channel.send('hiya :)');
-    } else if (text === '.gameon') {
-        let role = message.guild.roles.cache.find(role => role.name === gameRoleName);
-        if (!role) {
-            try {
-                role = await message.guild.roles.create({
-                    data: {
-                        name: gameRoleName,
-                        color: gameRoleColor,
-                        mentionable: true
-                    }
-                });
-            } catch (e) {
-                message.channel.send(`sorry, i can't add the \`${gameRoleName}\` role so i can't give it to you`);
-                return;
-            }
-        } else if (message.member.roles.cache.find(role => role.name === gameRoleName)) {
-            message.channel.send(`you already have the \`${gameRoleName}\` role. oh well. Game On.`);
-            return;
-        }
-        await message.member.roles.add(role);
-        message.channel.send(`\`${gameRoleName}\` role added (remove it if you change your mind). Game on.`);
-    } else if (text === '.gameoff') {
-        const role = message.member.roles.cache.find(role => role.name === gameRoleName);
-        if (role) {
-            await message.member.roles.remove(role);
-            message.channel.send(`\`${gameRoleName}\` role removed. you could've done this yourself though`);
-        } else {
-            message.channel.send(`you already don't have the \`${gameRoleName}\` role so you're good`);
-        }
-    } else if (text === '.join') {
-        if (voiceChannel) {
-            const connection = await voiceChannel.join();
-            playSound('audio/entrance.wav', connection);
-        } else {
-            message.channel.send('you\'re not in a voice channel. join what? lol');
-        }
-    } else if (text === '.leave') {
-        const connection = voiceChannel ? getConnection(voiceChannel.id) : null;
-        if (connection) {
-            playSound('audio/exit.mp3', connection).on('finish', () => {
-                voiceChannel.leave();
-            });
-        } else {
-            message.channel.send('we\'re not in a voice channel together. leave what? lol');
-        }
     }
 };
 
 client.on('message', message => {
+    // ignore bot messages
+    if (message.author.bot) {
+        return;
+    }
     // only parse text channel messages... for now
     if (message.channel.type === 'text') {
         onTextMessage(message);
@@ -84,13 +52,13 @@ client.on('voiceStateUpdate', (old, current) => {
         return;
     }
     // play entrance theme if someone joins bot's channel
-    let connection = getConnection(current.channelID);
+    let connection = getConnection(current.channelID, client);
     if (connection) {
         playSound(`audio/themes/${current.member.id}.mp3`, connection);
         return;
     }
     // play "bye" sound clip if someone leaves bot's channel
-    connection = getConnection(old.channelID);
+    connection = getConnection(old.channelID, client);
     if (connection) {
         playSound('audio/bye.wav', connection);
     }
@@ -100,4 +68,4 @@ client.once('ready', () => {
     console.log('hiya :)');
 });
 
-client.login(process.env.CLIENT_SECRET);
+client.login(token);

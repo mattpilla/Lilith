@@ -1,0 +1,7 @@
+{
+    "token": "your bot's token here",
+    "prefix": ".",
+    "volume": 0.5,
+    "gameRoleName": "gamer",
+    "gameRoleColor": "#c072fe"
+}

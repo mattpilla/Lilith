@@ -7,11 +7,12 @@
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
 - Invite your bot to your server (see [Extra](#extra) section for more info)
-- Create `.env` at root of directory based on `.env.example`
-    - `CLIENT_SECRET` uses the token from the previous step
-    - `VOLUME` (optional) controls the volume of sounds played in a voice channel
-    - `GAME_ROLE_NAME` (optional) set the name of the role `.gameon` should add
-    - `GAME_ROLE_COLOR` (optional) set the color of the role `.gameon` should add (expects hex string)
+- Create `config.json` at the root of this directory by copying and modifying `config.example.json`
+    - `token` uses the token from the first step
+    - `prefix` the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
+    - `volume` controls the volume of sounds played in a voice channel
+    - `gameRoleName` sets the name of the role `.gameon` should add
+    - `gameRoleColor` sets the color of the role `.gameon` should add (expects hex string)
 - `npm ci` to install dependencies
     - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
 - `npm start` runs the bot!
@@ -22,11 +23,15 @@
 
 ## Commands
 - `hey`: says hi
-- `.gameon`: gives user role specified by `GAME_ROLE_NAME` in `.env` (and creates it if it doesn't exist)
+
+### From `commands` directory
+These commands are prefixed with `prefix` from `config.json` (assumed prefix of `.` here for simplicity).\
+Refer to the README in the `commands` directory for more info.
 - `.gameoff`: removes the role given by `.gameon` from the user
+- `.gameon`: gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)
 - `.join`: joins your current voice channel and plays a sound clip
 - `.leave`: plays a sound clip then exits voice
 
 ## Events
-- `On user joining voice channel`: plays their entrance theme, if they have one
-- `On user leaving voice channel`: plays a sound clip to say bye
+- `On user joining voice channel bot is in`: plays their entrance theme, if they have one
+- `On user leaving voice channel bot is in`: plays a sound clip to say bye
