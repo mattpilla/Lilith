@@ -7,7 +7,7 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
         const connection = voiceChannel ? getConnection(voiceChannel.id, message.client) : null;
         if (connection) {
-            playSound('audio/exit.mp3', connection).on('finish', () => {
+            playSound('audio/exit.ogg', connection).on('finish', () => {
                 voiceChannel.leave();
             });
         } else {

@@ -6,7 +6,7 @@ Property | Type | Optional | Default | Description
 name | string | no | none | command name
 exact | boolean | yes | false | if true, requires that no arguments are given
 
-An `execute` function must also be exported, which is the function the command executes. It has the following paramters:
+An `execute` function must also be exported, which is the function the command executes. It has the following parameters:
 Parameter | Type | Optional | Default | Description
 --------- | ---- | -------- | ------- | -----------
 message | string | no | none | the full message that triggered the command

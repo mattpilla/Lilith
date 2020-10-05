@@ -7,7 +7,7 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
         if (voiceChannel) {
             const connection = await voiceChannel.join();
-            playSound('audio/entrance.wav', connection);
+            playSound('audio/entrance.ogg', connection);
         } else {
             message.channel.send('you\'re not in a voice channel. join what? lol');
         }

@@ -60,7 +60,7 @@ client.on('voiceStateUpdate', (old, current) => {
     // play "bye" sound clip if someone leaves bot's channel
     connection = getConnection(old.channelID, client);
     if (connection) {
-        playSound('audio/bye.wav', connection);
+        playSound('audio/bye.ogg', connection);
     }
 });
 
