@@ -31,6 +31,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.gameon`: gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)
 - `.join`: joins your current voice channel and plays a sound clip
 - `.leave`: plays a sound clip then exits voice
+- `.poke <Pokémon name or number> (shiny)`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 
 ## Events
 - `On user joining voice channel bot is in`: plays their entrance theme, if they have one

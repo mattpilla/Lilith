@@ -32,6 +32,28 @@ client.on('message', message => {
         if (command.exact && args.length) {
             return; // exit if command expects no args but args are given
         }
+        // test if the command was used correctly. if not, show usage and/or examples
+        if (typeof command.test === 'function' && !command.test(args)) {
+            let reply = '';
+            if (command.usage) {
+                reply = `usage: \`${prefix + commandName} ${command.usage}\``;
+            }
+            const examples = command.examples;
+            if (examples) {
+                if (reply && examples.length) {
+                    reply += '\n';
+                }
+                for (let i = 0; i < examples.length; i++) {
+                    if (!i) {
+                        reply += 'ex: ';
+                    } else {
+                        reply += ' or ';
+                    }
+                    reply += `\`${prefix + commandName} ${examples[i]}\``;
+                }
+            }
+            return reply ? message.channel.send(reply) : null;
+        }
         try {
             command.execute(message, args);
         } catch (e) {
@@ -50,8 +72,7 @@ client.on('voiceStateUpdate', (old, current) => {
     // play entrance theme if someone joins bot's channel
     let connection = getConnection(current.channelID, client);
     if (connection) {
-        playSound(`audio/themes/${current.member.id}.mp3`, connection);
-        return;
+        return playSound(`audio/themes/${current.member.id}.mp3`, connection);
     }
     // play "bye" sound clip if someone leaves bot's channel
     connection = getConnection(old.channelID, client);
