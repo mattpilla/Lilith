@@ -13,7 +13,11 @@ const commandFiles = fs.readdirSync('./commands')
         client.commands.set(command.name, command);
     });
 
-const onTextMessage = message => {
+client.on('message', message => {
+    // ignore bot messages
+    if (message.author.bot) {
+        return;
+    }
     const text = message.content;
     if (text.startsWith(prefix)) {
         const args = text.slice(prefix.length).split(/\s+/);
@@ -21,6 +25,9 @@ const onTextMessage = message => {
         const command = client.commands.get(commandName);
         if (!command) {
             return; // exit if command doesn't exist
+        }
+        if (command.guildOnly && message.channel.type === 'dm') {
+            return message.reply('this command doesn\'t work in DMs'); // exit if command is guild-only but executed in a DM
         }
         if (command.exact && args.length) {
             return; // exit if command expects no args but args are given
@@ -32,17 +39,6 @@ const onTextMessage = message => {
         }
     } else if (text === 'hey') {
         message.channel.send('hiya :)');
-    }
-};
-
-client.on('message', message => {
-    // ignore bot messages
-    if (message.author.bot) {
-        return;
-    }
-    // only parse text channel messages... for now
-    if (message.channel.type === 'text') {
-        onTextMessage(message);
     }
 });
 
@@ -69,3 +65,7 @@ client.once('ready', () => {
 });
 
 client.login(token);
+
+// generic error safeguards to prevent crashes
+process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
+process.on('uncaughtException', error => console.error('Uncaught Exception', error));

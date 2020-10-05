@@ -2,6 +2,7 @@ const { getConnection, playSound } = require('../helpers.js');
 
 module.exports = {
     name: 'leave',
+    guildOnly: true,
     exact: true,
     execute(message, args) {
         const voiceChannel = message.member.voice.channel;

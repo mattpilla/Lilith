@@ -2,6 +2,7 @@ const { gameRoleName } = require('../config.json');
 
 module.exports = {
     name: 'gameoff',
+    guildOnly: true,
     exact: true,
     async execute(message, args) {
         const role = message.member.roles.cache.find(role => role.name === gameRoleName);
