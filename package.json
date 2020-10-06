@@ -4,7 +4,8 @@
   "description": "highly custom discord bot",
   "main": "lilith.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "copyfiles": "shx cp -n config.example.json config.json && shx cp -n auth.example.json auth.json"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/mattpilla/Lilith#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "shx": "^0.3.2"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",

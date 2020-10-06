@@ -7,14 +7,16 @@
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
 - Invite your bot to your server (see [Extra](#extra) section for more info)
-- Create `config.json` at the root of this directory by copying and modifying `config.example.json`
+- `npm ci` to install dependencies
+    - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
+- `npm run copyfiles` creates `auth.json` and `config.json` by copying the files `auth.example.json` and `config.example.json`, respectively. You can choose to do this manually instead.
+- modify `auth.json`:
     - `token` the token from the first step
+- modify `config.json` as you see fit:
     - `prefix` the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
     - `volume` the volume of sounds played in a voice channel
     - `gameRoleName` the name of the role `.gameon` should add
     - `gameRoleColor` the color of the role `.gameon` should add (expects hex string)
-- `npm ci` to install dependencies
-    - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
 - `npm start` runs the bot!
 
 ### Extra
