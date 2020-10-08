@@ -2,7 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { token } = require('./auth.json');
 const { prefix } = require('./config.json');
-const { getConnection, playSound } = require('./helpers.js');
+const { getConnection, isAdmin, playSound } = require('./helpers.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -29,6 +29,9 @@ client.on('message', message => {
         }
         if (command.guildOnly && message.channel.type === 'dm') {
             return message.reply('this command doesn\'t work in DMs'); // exit if command is guild-only but executed in a DM
+        }
+        if (command.adminOnly && !isAdmin(message.author.id)) {
+            return message.channel.send('can\'t let you do that'); // exit if user isn't authorized to run command
         }
         if (command.exact && args.length) {
             return; // exit if command expects no args but args are given

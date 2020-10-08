@@ -11,13 +11,14 @@
     - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
 - `npm run copyfiles` creates `auth.json` and `config.json` by copying the files `auth.example.json` and `config.example.json`, respectively. You can choose to do this manually instead.
 - modify `auth.json`:
-    - `token` the token from the first step
+    - `token`: the token from the first step
 - modify `config.json` as you see fit:
-    - `prefix` the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
-    - `volume` the volume of sounds played in a voice channel
-    - `embedColor` the default color of MessageEmbeds
-    - `gameRoleName` the name of the role `.gameon` should add
-    - `gameRoleColor` the color of the role `.gameon` should add (expects hex string)
+    - `prefix`: the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
+    - `owner`: your Discord ID; lets you run commands that have the `adminOnly` property
+    - `volume`: the volume of sounds played in a voice channel
+    - `embedColor`: the default color of MessageEmbeds
+    - `gameRoleName`: the name of the role `.gameon` should add
+    - `gameRoleColor`: the color of the role `.gameon` should add (expects hex string)
 - `npm start` runs the bot!
 
 ### Extra
@@ -30,6 +31,7 @@
 ### From [commands](commands) directory
 These commands are prefixed with `prefix` from `config.json` (assumed prefix of `.` here for simplicity).\
 Refer to the README in the [commands](commands) directory for more info.
+- `.gameclear`: (admin only) deletes the role given by `.gameon` from the server
 - `.gameoff`: removes the role given by `.gameon` from the user
 - `.gameon`: gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)
 - `.join`: joins your current voice channel and plays a sound clip

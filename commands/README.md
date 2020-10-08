@@ -7,6 +7,7 @@ name | string | no | none | command name
 usage | string | yes | none | if `validator` fails, print this string after the command name to demonstrate usage
 examples | array\<string\> | yes | none | if `validator` fails, print this list of example arguments
 guildOnly | boolean | yes | false | if true, command must not be sent via DM
+isAdmin | boolean | yes | false | if true, user must have the right permissions
 exact | boolean | yes | false | if true, requires that no arguments are given
 
 An `execute` function must also be exported, which is the function the command executes. It has the following parameters:

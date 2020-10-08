@@ -1,10 +1,15 @@
 const fs = require('fs');
-const { volume } = require('./config.json');
+const { owner, volume } = require('./config.json');
 
 module.exports = {
     // return a voice connection based on id
     getConnection(id, client) {
         return client.voice.connections.find(connection => connection.channel.id === id);
+    },
+
+    // return true if user has the right permissions
+    isAdmin(id) {
+        return id === owner;
     },
 
     // play a sound through voice chat
