@@ -33,8 +33,8 @@ client.on('message', message => {
         if (command.exact && args.length) {
             return; // exit if command expects no args but args are given
         }
-        // test if the command was used correctly. if not, show usage and/or examples
-        if (typeof command.test === 'function' && !command.test(args)) {
+        // validate that the command was used correctly. if not, show usage and/or examples
+        if (typeof command.validator === 'function' && !command.validator(args)) {
             let reply = '';
             if (command.usage) {
                 reply = `usage: \`${prefix + commandName} ${command.usage}\``;

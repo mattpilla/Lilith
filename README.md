@@ -15,6 +15,7 @@
 - modify `config.json` as you see fit:
     - `prefix` the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
     - `volume` the volume of sounds played in a voice channel
+    - `embedColor` the default color of MessageEmbeds
     - `gameRoleName` the name of the role `.gameon` should add
     - `gameRoleColor` the color of the role `.gameon` should add (expects hex string)
 - `npm start` runs the bot!

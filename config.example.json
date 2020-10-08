@@ -1,6 +1,7 @@
 {
     "prefix": ".",
     "volume": 0.5,
+    "embedColor": "#cca4ff",
     "gameRoleName": "gamer",
     "gameRoleColor": "#c072fe"
 }
