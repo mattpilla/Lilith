@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { token } = require('./auth.json');
-const { prefix } = require('./config.json');
+const { prefix, voiceChannels } = require('./config.json');
 const { getConnection, isAdmin, playSound } = require('./helpers.js');
 
 const client = new Discord.Client();
@@ -86,6 +86,11 @@ client.on('voiceStateUpdate', (old, current) => {
 });
 
 client.once('ready', () => {
+    if (voiceChannels) {
+        voiceChannels.forEach(channel => {
+            client.channels.fetch(channel).then(channel => channel.join());
+        });
+    }
     console.log('hiya :)');
 });
 
