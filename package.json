@@ -5,7 +5,8 @@
   "main": "lilith.js",
   "scripts": {
     "start": "nodemon",
-    "copyfiles": "shx cp -n config.example.json config.json && shx cp -n auth.example.json auth.json"
+    "copyfiles": "node scripts/copyfiles",
+    "postinstall": "npm run copyfiles"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,8 @@
   },
   "homepage": "https://github.com/mattpilla/Lilith#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "shx": "^0.3.2"
+    "chalk": "^4.1.0",
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",

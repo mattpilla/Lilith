@@ -9,7 +9,7 @@
 - Invite your bot to your server (see [Extra](#extra) section for more info)
 - `npm ci` to install dependencies
     - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
-- `npm run copyfiles` creates `auth.json` and `config.json` by copying the files `auth.example.json` and `config.example.json`, respectively. You can choose to do this manually instead.
+    - `auth.json` and `config.json` should now exist (see [Extra](#extra) section for more info)
 - modify `auth.json`:
     - `token`: the token from the first step
 - modify `config.json` as you see fit:
@@ -25,6 +25,7 @@
 ### Extra
 - Permissions are tricky, so you can use [this link](https://discordapi.com/permissions.html#372759761) to generate your bot's invite link. My suggested permissions are set there but you can change them if you know what you're doing.
 - Assets aren't being tracked in this repo. Refer to the README in the [audio](audio) directory for more info.
+- `npm run copyfiles` takes keys that don't exist in `auth.example.json` and `config.example.json` and copies them into `auth.json` and `config.json`, respectively. It creates these files if they don't exist. This is run automatically after every `npm ci`.
 
 ## Commands
 - `hey`: says hi
