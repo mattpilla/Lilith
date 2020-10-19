@@ -20,6 +20,7 @@
     - `gameRoleName`: the name of the role `.gameon` should add
     - `gameRoleColor`: the color of the role `.gameon` should add (expects hex string)
     - `voiceChannels`: array of voice channel IDs for the bot to join upon startup
+    - `homeChannels`: array of channel IDs to message upon startup (useful to know when the bot starts)
 - `npm start` runs the bot!
 
 ### Extra
@@ -42,6 +43,6 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.poke <Pokémon name or number> (shiny)`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 
 ## Events
-- `On bot initialize`: joins voice channels specified in `config.json`
+- `On bot initialize`: joins voice channels and messages channels specified in `config.json`
 - `On user joining voice channel bot is in`: plays their entrance theme, if they have one
 - `On user leaving voice channel bot is in`: plays a sound clip to say bye
