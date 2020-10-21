@@ -2,6 +2,9 @@ const fs = require('fs');
 const { owner, volume } = require('./config.json');
 
 module.exports = {
+    // returns max length of discord embed description
+    MAX_LENGTH: 2048,
+
     // return a voice connection based on id
     getConnection(id, client) {
         return client.voice.connections.find(connection => connection.channel.id === id);

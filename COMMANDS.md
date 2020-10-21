@@ -4,6 +4,7 @@
 ## From [commands](commands) directory
 These commands are prefixed with `prefix` from `config.json` (assumed prefix of `.` here for simplicity).\
 Refer to the README in the [commands](commands) directory for more info.
+- `.define <search term>`: Gives top definition of term from [Urban Dictionary](https://www.urbandictionary.com/)
 - `.gameclear`: (admin only) deletes the role given by `.gameon` from the server
 - `.gameoff`: removes the role given by `.gameon` from the user
 - `.gameon`: gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)
@@ -11,7 +12,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.inspiration`: posts an image generated from http://inspirobot.me
 - `.join`: joins your current voice channel and plays a sound clip
 - `.leave`: plays a sound clip then exits voice
-- `.poke <Pokémon name or number> (shiny)`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
+- `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 
 ## Events
 - `On bot initialize`: joins voice channels and messages channels specified in `config.json`
