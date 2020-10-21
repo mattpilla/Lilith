@@ -5,8 +5,10 @@
   "main": "lilith.js",
   "scripts": {
     "start": "nodemon",
-    "copyfiles": "node scripts/copyfiles",
-    "postinstall": "npm run copyfiles"
+    "dev": "npm start",
+    "prod": "pm2 start lilith.js --watch --cron \"0 7 * * *\"",
+    "postinstall": "npm run copyfiles",
+    "copyfiles": "node scripts/copyfiles"
   },
   "repository": {
     "type": "git",
