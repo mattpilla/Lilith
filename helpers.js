@@ -31,7 +31,7 @@ module.exports = {
         return dispatcher;
     },
 
-    // random integer between 0 and max, inclusive
+    // random integer between 0 (inclusive) and max (exclusive)
     randInt(max) {
         return Math.floor(Math.random() * max);
     }
