@@ -29,5 +29,10 @@ module.exports = {
         });
         dispatcher.on('error', console.error);
         return dispatcher;
+    },
+
+    // random integer between 0 and max, inclusive
+    randInt(max) {
+        return Math.floor(Math.random() * max);
     }
 };

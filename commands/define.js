@@ -9,11 +9,11 @@ module.exports = {
         return args.length > 0;
     },
     async execute(message, args) {
-        const term = encodeURIComponent(args.join(' '));
+        const term = args.join(' ');
         const errorMsg = `no results for \`${term}\``;
         let data;
         try {
-            const res = await fetch(`http://api.urbandictionary.com/v0/define?term=${term}`);
+            const res = await fetch(`http://api.urbandictionary.com/v0/define?term=${encodeURIComponent(term)}`);
             if (!res.ok) {
                 return message.channel.send(errorMsg);
             }

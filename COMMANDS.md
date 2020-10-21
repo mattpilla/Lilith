@@ -13,6 +13,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.join`: joins your current voice channel and plays a sound clip
 - `.leave`: plays a sound clip then exits voice
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
+- `.random <integer>`: gives a random number up to and including the given int
 
 ## Events
 - `On bot initialize`: joins voice channels and messages channels specified in `config.json`
