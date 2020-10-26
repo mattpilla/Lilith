@@ -30,8 +30,11 @@
 - `npm run copyfiles` takes keys that don't exist in `auth.example.json` and `config.example.json` and copies them into `auth.json` and `config.json`, respectively. It creates these files if they don't exist. This is run automatically after every `npm ci`.
 
 ## Running on a server
-- `npm i pm2@latest -g` to install [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/)
+Instead of using `npm start` which restarts on file change and is suited for development, you can use [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) to host the bot.
+- `npm i pm2@latest -g` to install pm2 globally before setting up the bot
+- follow the steps in [Setup](#setup)
 - `npm run prod` to run via pm2, restarting every day at 7am
+- `npm run update` gets the latest changes from git, reinstalls dependencies, and reloads the app with 0 downtime
 
 ## Commands
 Refer to [COMMANDS.md](COMMANDS.md) to see what the bot can do.

@@ -6,9 +6,10 @@
   "scripts": {
     "start": "nodemon",
     "dev": "npm start",
-    "prod": "pm2 start lilith.js --watch --cron \"0 7 * * *\"",
+    "prod": "pm2 start lilith.js --cron \"0 7 * * *\"",
     "postinstall": "npm run copyfiles",
-    "copyfiles": "node scripts/copyfiles"
+    "copyfiles": "node scripts/copyfiles",
+    "update": "sh scripts/update.sh lilith"
   },
   "repository": {
     "type": "git",
