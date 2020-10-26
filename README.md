@@ -6,10 +6,10 @@
 
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
-- Invite your bot to your server (see [Extra](#extra) section for more info)
+- Invite your bot to your server (see [Extra](#extra) for more info)
 - `npm ci` to install dependencies
     - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator first
-    - `auth.json` and `config.json` should now exist (see [Extra](#extra) section for more info)
+    - `auth.json` and `config.json` should now exist (see [Extra](#extra) for more info)
 - modify `auth.json`:
     - `token`: the token from the first step
 - modify `config.json` as you see fit:
@@ -22,7 +22,7 @@
     - `voiceChannels`: array of voice channel IDs for the bot to join upon startup
     - `homeChannels`: array of channel IDs to message upon startup (useful to know when the bot starts)
 - `npm start` (or `npm run dev`) runs the bot!
-    - If running on a server, see [Running on a server](#running-on-a-server) section instead
+    - If running on a server, see [Running on a server](#running-on-a-server) instead
 
 ### Extra
 - Permissions are tricky, so you can use [this link](https://discordapi.com/permissions.html#372759761) to generate your bot's invite link. My suggested permissions are set there but you can change them if you know what you're doing.

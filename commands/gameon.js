@@ -12,7 +12,9 @@ module.exports = {
                     data: {
                         name: gameRoleName,
                         color: gameRoleColor,
-                        mentionable: true
+                        mentionable: true,
+                        hoist: true,
+                        permissions: 0
                     }
                 });
             } catch (e) {
@@ -23,7 +25,11 @@ module.exports = {
             message.channel.send(`you already have the \`${gameRoleName}\` role. oh well. Game On.`);
             return;
         }
-        await message.member.roles.add(role);
+        try {
+            await message.member.roles.add(role);
+        } catch (e) {
+            return message.channel.send('didn\'t work... i think i don\'t have the right permissions');
+        }
         message.channel.send(`\`${gameRoleName}\` role added (remove it if you change your mind). Game on.`);
     }
 };
