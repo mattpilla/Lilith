@@ -14,6 +14,8 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.leave`: plays a sound clip then exits voice
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 - `.random <integer>`: gives a random number up to and including the given int
+- `.stop`: stops the currently playing audio
+- `.yt <url of youtube video>`: plays the audio of the given youtube video
 
 ## Events
 - `On bot initialize`: joins voice channels and messages channels specified in `config.json`
