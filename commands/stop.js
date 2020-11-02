@@ -8,9 +8,8 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
         const connection = voiceChannel ? getConnection(voiceChannel.id, message.client) : null;
         if (connection) {
-            const dispatcher = connection.dispatcher;
-            if (dispatcher) {
-                dispatcher.pause();
+            if (connection.dispatcher) {
+                connection.dispatcher.destroy();
             }
         } else {
             message.channel.send('we\'re not in a voice channel together. stop what? lol');

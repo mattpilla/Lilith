@@ -17,6 +17,10 @@ module.exports = {
 
     // play a sound through voice chat
     playSound(sound, connection) {
+        // don't play anything over youtube videos
+        if (connection.dispatcher && connection.dispatcher.youtube) {
+            return;
+        }
         // if .ogg, create ReadableStream and set type to ogg/opus
         let type;
         if (sound.endsWith('.ogg')) {

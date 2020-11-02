@@ -26,10 +26,12 @@ module.exports = {
             }
             try {
                 const connection = await voiceChannel.join();
-                connection.play(ytdl(video.videoDetails.videoId), {
+                const dispatcher = connection.play(ytdl(video.videoDetails.videoId), {
                     bitrate: 'auto',
                     volume
                 });
+                // set custom property so we know it's a youtube video
+                dispatcher.youtube = true;
                 message.channel.send(`playing **${Util.escapeMarkdown(video.videoDetails.title)}** (\`${prefix}stop\` to stop)`);
             } catch (e) {
                 console.error(e);
