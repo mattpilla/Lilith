@@ -5,9 +5,9 @@
   "main": "lilith.js",
   "scripts": {
     "start": "nodemon",
-    "dev": "npm start",
+    "dev": "yarn start",
     "prod": "cross-env NODE_ENV=prod pm2 start lilith.js --cron \"0 7 * * *\"",
-    "postinstall": "npm run copyfiles",
+    "ci": "yarn && yarn copyfiles",
     "copyfiles": "node scripts/copyfiles",
     "update": "sh scripts/update.sh lilith",
     "restart": "sh scripts/restart.sh lilith"

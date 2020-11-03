@@ -7,7 +7,7 @@ set -e;
 git pull;
 
 # reinstall dependencies in case they change
-npm ci;
+yarn ci;
 
 # restart pm2
 pm2 reload $1;

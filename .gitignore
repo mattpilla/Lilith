@@ -2,6 +2,14 @@ node_modules/
 auth.json
 config.json
 
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 # ignore everything in these directories except their READMEs
 audio/*
 !README.md
