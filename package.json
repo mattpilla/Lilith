@@ -10,7 +10,7 @@
     "ci": "yarn && yarn copyfiles",
     "copyfiles": "node scripts/copyfiles",
     "update": "sh scripts/update.sh lilith",
-    "restart": "sh scripts/restart.sh lilith"
+    "restart": "pm2 reload lilith"
   },
   "repository": {
     "type": "git",
