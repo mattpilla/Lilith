@@ -2,6 +2,7 @@ const { getConnection, playSound } = require('../helpers.js');
 
 module.exports = {
     name: 'leave',
+    description: 'plays a sound clip then exits voice',
     guildOnly: true,
     exact: true,
     execute(message, args) {

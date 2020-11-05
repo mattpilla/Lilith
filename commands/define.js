@@ -5,6 +5,8 @@ const { MAX_LENGTH } = require('../helpers.js');
 
 module.exports = {
     name: 'define',
+    description: 'Gives top definition of term from [Urban Dictionary](https://www.urbandictionary.com/)',
+    usage: '<search term>',
     validator(args) {
         return args.length > 0;
     },

@@ -4,6 +4,7 @@ const { prefix, volume } = require('../config.json');
 
 module.exports = {
     name: 'yt',
+    description: 'plays the audio of the given youtube video',
     guildOnly: true,
     usage: '<url of youtube video>',
     validator(args) {

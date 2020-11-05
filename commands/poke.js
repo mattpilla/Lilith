@@ -20,6 +20,7 @@ const statNames = {
 
 module.exports = {
     name: 'poke',
+    description: 'gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)',
     usage: '<Pokémon name or number>',
     examples: [
         'bulbasaur',

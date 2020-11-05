@@ -2,6 +2,7 @@ const { gameRoleName, gameRoleColor } = require('../config.json');
 
 module.exports = {
     name: 'gameclear',
+    description: 'deletes the role given by `.gameon` from the server',
     guildOnly: true,
     adminOnly: true,
     exact: true,

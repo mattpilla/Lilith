@@ -2,6 +2,7 @@ const { randInt } = require('../helpers.js');
 
 module.exports = {
     name: 'random',
+    description: 'gives a random number up to and including the given int',
     usage: '<positive integer greater than 1>',
     examples: ['6'],
     validator(args) {

@@ -2,6 +2,7 @@ const { playSound } = require('../helpers.js');
 
 module.exports = {
     name: 'join',
+    description: 'joins your current voice channel and plays a sound clip',
     guildOnly: true,
     exact: true,
     async execute(message, args) {

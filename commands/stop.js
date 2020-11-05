@@ -2,6 +2,7 @@ const { getConnection } = require('../helpers.js');
 
 module.exports = {
     name: 'stop',
+    description: 'stops the currently playing audio',
     guildOnly: true,
     exact: true,
     execute(message, args) {

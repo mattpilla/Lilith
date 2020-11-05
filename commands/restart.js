@@ -1,5 +1,6 @@
 module.exports = {
     name: 'restart',
+    description: 'restarts the bot',
     adminOnly: true,
     exact: true,
     execute(message, args) {

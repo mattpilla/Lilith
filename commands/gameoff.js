@@ -2,6 +2,7 @@ const { gameRoleName } = require('../config.json');
 
 module.exports = {
     name: 'gameoff',
+    description: 'removes the role given by `.gameon` from the user',
     guildOnly: true,
     exact: true,
     async execute(message, args) {
