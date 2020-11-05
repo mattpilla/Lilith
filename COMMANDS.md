@@ -16,6 +16,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.random <integer>`: gives a random number up to and including the given int
 - `.restart`: (admin only) restarts the bot
 - `.stop`: stops the currently playing audio
+- `.weather <US zip code>`: if API key in `auth.json`, gives current weather data for given zip code
 - `.yt <url of youtube video>`: plays the audio of the given youtube video
 
 ## Events

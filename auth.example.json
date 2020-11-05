@@ -1,3 +1,4 @@
 {
-    "token": "your bot's token here"
+    "token": "your bot's token here",
+    "openWeatherMapToken": ""
 }

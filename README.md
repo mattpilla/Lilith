@@ -13,6 +13,7 @@
 - `yarn copyfiles` sets up `auth.json` and `config.json` (see [Extra](#extra) for more info)
 - Modify `auth.json`:
     - `token`: the token from the first step
+    - `openWeatherMapToken`: (optional) [OpenWeather](https://openweathermap.org/) API key for `.weather`
 - Modify `config.json` as you see fit:
     - `prefix`: the prefix for your bot's commands (ex: the prefix of `.help` would be `.`)
     - `owner`: your Discord ID; lets you run commands that have the `adminOnly` property
