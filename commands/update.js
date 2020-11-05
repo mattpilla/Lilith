@@ -1,6 +1,6 @@
 module.exports = {
     name: 'update',
-    description: 'updates the bot with latest changes and restarts (if [running on a server](#running-on-a-server))',
+    description: 'updates the bot with latest changes and restarts (if [running on a server](/README.md#running-on-a-server))',
     adminOnly: true,
     exact: true,
     execute(message, args) {
