@@ -18,6 +18,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
 - `.stop`: **[S]** stops the currently playing audio
+- `.update`: **[A]** updates the bot with latest changes and restarts (if [running on a server](#running-on-a-server))
 - `.weather <US zip code>`: if API key in `auth.json`, gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)
 - `.yt <url of youtube video>`: **[S]** plays the audio of the given youtube video
 
