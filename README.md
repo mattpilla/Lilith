@@ -20,6 +20,7 @@
     - `embedColor`: the default color of MessageEmbeds
     - `gameRoleName`: the name of the role `.gameon` should add
     - `gameRoleColor`: the color of the role `.gameon` should add (expects hex string)
+    - `rouletteTimeout`: idle time (in ms) until `.roulette` ends
     - `voiceChannels`: array of voice channel IDs for the bot to join upon startup
     - `homeChannels`: array of channel IDs to message upon startup (useful to know when the bot starts)
 - `yarn start` (or `yarn dev`) runs the bot!

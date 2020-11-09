@@ -5,6 +5,7 @@
     "embedColor": "#cca4ff",
     "gameRoleName": "gamer",
     "gameRoleColor": "#c072fe",
+    "rouletteTimeout": 120000,
     "voiceChannels": [],
     "homeChannels": []
 }

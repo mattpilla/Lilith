@@ -17,6 +17,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
+- `.roulette`: **[S]** play russian roulette without the threat of actually dying
 - `.stop`: **[S]** stops the currently playing audio
 - `.update`: **[A]** updates the bot with latest changes and restarts (if [running on a server](/README.md#running-on-a-server))
 - `.weather <US zip code>`: if API key in `auth.json`, gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)

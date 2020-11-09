@@ -1,11 +1,11 @@
 const fs = require('fs');
-const Discord = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const { token } = require('./auth.json');
 const { prefix, voiceChannels, homeChannels } = require('./config.json');
 const { getConnection, isAdmin, playSound } = require('./helpers.js');
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const client = new Client();
+client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands')
     .filter(file => file.endsWith('.js'))
