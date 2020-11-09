@@ -9,7 +9,6 @@
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
 - Invite your bot to your server (see [Extra](#extra) for more info)
 - `yarn` to install dependencies
-    - Windows users may need to run `npm install --global --production --vs2015 --add-python-to-path windows-build-tools` as Administrator if this fails
 - `yarn copyfiles` sets up `auth.json` and `config.json` (see [Extra](#extra) for more info)
 - Modify `auth.json`:
     - `token`: the token from the first step
