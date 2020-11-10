@@ -61,6 +61,10 @@ module.exports = {
     description: 'play russian roulette without the threat of actually dying',
     guildOnly: true,
     exact: true,
+    subcommands: [{
+        name: 'shoot',
+        description: 'when the game is active, this fires a shot. don\'t die!'
+    }],
     execute(message, args) {
         if (sessions.has(message.channel.id)) {
             return message.channel.send(`a game's already going here. type \`${keyword}\` to play that. or just wait for it end`);

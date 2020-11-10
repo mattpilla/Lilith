@@ -14,7 +14,9 @@ const commandDocs = fs.readdirSync('./commands')
         const usage = command.usage ? ` ${command.usage}` : ''; // show usage if available
         let flags = `${command.adminOnly ? 'A' : ''}${command.guildOnly ? 'S' : ''}`;
         flags = flags ? `**[${flags}]** ` : ''; // list flags if available
-        return `- \`.${command.name}${usage}\`: ${flags}${command.description}`;
+        // list subcommands as indented bullets if they exist
+        const subcommands = command.subcommands ? command.subcommands.map(c => `\n\t- \`${c.name}\`: ${c.description}`).join('') : '';
+        return `- \`.${command.name}${usage}\`: ${flags}${command.description}${subcommands}`;
     })
     .join('\n');
 

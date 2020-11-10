@@ -3,8 +3,9 @@
 
 ## From [commands](commands) directory
 These commands are prefixed with `prefix` from `config.json` (assumed prefix of `.` here for simplicity).\
-`[A]` means only the bot's admins can use this command.\
-`[S]` means the command can only be used in a server (not in DMs).\
+**[A]** means only the bot's admins can use this command.\
+**[S]** means the command can only be used in a server (not in DMs).\
+Indented commands are related to the command above it.\
 Refer to the README in the [commands](commands) directory for more info.
 - `.define <search term>`: Gives top definition of term from [Urban Dictionary](https://www.urbandictionary.com/)
 - `.gameclear`: **[AS]** deletes the role given by `.gameon` from the server
@@ -18,6 +19,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
 - `.roulette`: **[S]** play russian roulette without the threat of actually dying
+	- `shoot`: when the game is active, this fires a shot. don't die!
 - `.stop`: **[S]** stops the currently playing audio
 - `.update`: **[A]** updates the bot with latest changes and restarts (if [running on a server](/README.md#running-on-a-server))
 - `.weather <US zip code>`: if API key in `auth.json`, gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)
