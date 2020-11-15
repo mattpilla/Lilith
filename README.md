@@ -37,7 +37,7 @@
 Instead of using `yarn start` which restarts on file change and is suited for development, you can use [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) to host the bot.
 - `yarn global add pm2` to install pm2 globally before setting up the bot
 - Follow the steps in [Setup](#setup)
-- `yarn prod` to run via pm2, restarting every day at 7am
+- `yarn prod` to run via pm2
 - `yarn update` gets the latest changes from git, reinstalls dependencies, and reloads the app with 0 downtime
 - `yarn restart` restarts the bot
 
