@@ -11,7 +11,8 @@
     "copyfiles": "node scripts/copyfiles",
     "docs": "node scripts/auto-readme/auto-readme",
     "update": "sh scripts/update.sh lilith",
-    "restart": "pm2 reload lilith"
+    "restart": "pm2 reload lilith",
+    "site": "node scripts/site/generate-site"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
   "devDependencies": {
     "chalk": "^4.1.0",
     "cross-env": "^7.0.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sass": "^1.29.0"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",

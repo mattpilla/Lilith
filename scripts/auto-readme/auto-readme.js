@@ -26,7 +26,7 @@ readme = readme.replace('!!!!', commandDocs);
 // save readme
 const generateAutoReadme = async filename => {
     try {
-        fs.writeFile(filename, readme, 'utf8');
+        await fs.promises.writeFile(filename, readme, 'utf8');
         console.log(`updated ${chalk.yellow(filename)}`);
     } catch (e) {
         console.error(e);
