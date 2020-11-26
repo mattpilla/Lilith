@@ -12,12 +12,112 @@
         <div id="app">
             <div id="nav">
                 <div class="set-width">
+                    <img id="avatar" src="./avatar.PNG">
                     Lilith
                 </div>
             </div>
             <div class="set-width">
+                <h1>Commands</h1>
                 <div id="content">
-                    !!!!
+<!-- auto-generated content -->
+<div class="command">
+                <b>.define <search term></b>
+                <span></span>
+                <span>Gives top definition of term from <a href="https://www.urbandictionary.com/">Urban Dictionary</a></span>
+                
+            </div>
+<div class="command">
+                <b>.gameclear</b>
+                <span>**[AS]** </span>
+                <span>deletes the role given by <code>.gameon</code> from the server</span>
+                
+            </div>
+<div class="command">
+                <b>.gameoff</b>
+                <span>**[S]** </span>
+                <span>removes the role given by <code>.gameon</code> from the user</span>
+                
+            </div>
+<div class="command">
+                <b>.gameon</b>
+                <span>**[S]** </span>
+                <span>gives user role specified by <code>gameRoleName</code> in <code>config.json</code> (and creates it if it doesn't exist)</span>
+                
+            </div>
+<div class="command">
+                <b>.help</b>
+                <span></span>
+                <span>links to this page</span>
+                
+            </div>
+<div class="command">
+                <b>.inspiration</b>
+                <span></span>
+                <span>posts an image generated from http://inspirobot.me</span>
+                
+            </div>
+<div class="command">
+                <b>.join</b>
+                <span>**[S]** </span>
+                <span>joins your current voice channel and plays a sound clip</span>
+                
+            </div>
+<div class="command">
+                <b>.leave</b>
+                <span>**[S]** </span>
+                <span>plays a sound clip then exits voice</span>
+                
+            </div>
+<div class="command">
+                <b>.poke <Pokémon name or number></b>
+                <span></span>
+                <span>gives types, abilities, stats, and sprite of Pokémon, using <a href="https://pokeapi.co/">PokéAPI</a></span>
+                
+            </div>
+<div class="command">
+                <b>.random <positive integer greater than 1></b>
+                <span></span>
+                <span>gives a random number up to and including the given int</span>
+                
+            </div>
+<div class="command">
+                <b>.restart</b>
+                <span>**[A]** </span>
+                <span>restarts the bot</span>
+                
+            </div>
+<div class="command">
+                <b>.roulette</b>
+                <span>**[S]** </span>
+                <span>play russian roulette without the threat of actually dying</span>
+                
+	- `shoot`: when the game is active, this fires a shot. don't die!
+            </div>
+<div class="command">
+                <b>.stop</b>
+                <span>**[S]** </span>
+                <span>stops the currently playing audio</span>
+                
+            </div>
+<div class="command">
+                <b>.update</b>
+                <span>**[A]** </span>
+                <span>updates the bot with latest changes and restarts (if <a href="/README.md#running-on-a-server">running on a server</a>)</span>
+                
+            </div>
+<div class="command">
+                <b>.weather <US zip code></b>
+                <span></span>
+                <span>if API key in <code>auth.json</code>, gives current weather data for given zip code, using <a href="https://openweathermap.org/">OpenWeather</a></span>
+                
+            </div>
+<div class="command">
+                <b>.yt <url of youtube video></b>
+                <span>**[S]** </span>
+                <span>plays the audio of the given youtube video</span>
+                
+            </div>
+<!-- end -->
                 </div>
             </div>
             <div id="footer">
@@ -26,8 +126,5 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-        <script src="app.js"></script>
-        <noscript>welcome to the good version of this site</noscript>
     </body>
 </html>

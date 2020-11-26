@@ -1,8 +1,8 @@
 // colors
 $primary: #cca4ff;
-$bg-color: #434343;
-$color: #fff;
-$banner-bg-color: #202020;
+$bg-color: #36393f;
+$color: #dcddde;
+$banner-bg-color: #202225;
 
 html,
 body,
@@ -35,6 +35,16 @@ a {
     background-color: $banner-bg-color;
     padding: 16px 0;
     font-size: 1.2rem;
+}
+
+#avatar {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border: 3px solid $primary;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 }
 
 #footer {
