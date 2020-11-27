@@ -44,7 +44,7 @@ const generateHtml = async (input, output) => {
             // list subcommands as indented bullets if they exist
             const subcommands = command.subcommands ? command.subcommands.map(c => `\n\t- \`${c.name}\`: ${c.description}`).join('') : '';
             return `<div class="command">
-                <b>.${command.name}${usage}</b>
+                <strong>.${command.name}${usage}</strong>
                 <span>${flags}</span>
                 <span>${md.renderInline(command.description)}</span>
                 ${subcommands}

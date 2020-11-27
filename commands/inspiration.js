@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = {
     name: 'inspiration',
-    description: 'posts an image generated from http://inspirobot.me',
+    description: 'posts an image generated from [InspiroBot](http://inspirobot.me)',
     exact: true,
     async execute(message, args) {
         const errorMsg = 'InspiroBot isn\'t working for me, sorry :(';

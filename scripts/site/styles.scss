@@ -2,6 +2,7 @@
 $primary: #cca4ff;
 $bg-color: #36393f;
 $color: #dcddde;
+$bold-color: #fff;
 $banner-bg-color: #202225;
 
 html,
@@ -26,6 +27,13 @@ a {
     }
 }
 
+h1 {
+    margin: 8px 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: $bold-color;
+}
+
 #app {
     display: flex;
     flex-direction: column;
@@ -34,22 +42,26 @@ a {
 #nav {
     background-color: $banner-bg-color;
     padding: 16px 0;
-    font-size: 1.2rem;
-}
 
-#avatar {
-    position: absolute;
-    height: 120px;
-    width: 120px;
-    border: 3px solid $primary;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-}
+    $avatar-size: 80px;
+    $avatar-border: 3px;
+    .avatar {
+        position: absolute;
+        top: 0;
+        height: $avatar-size;
+        width: $avatar-size;
+        border: $avatar-border solid $primary;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
 
-#footer {
-    margin-top: auto;
-    padding: 4px 0;
+    .name {
+        color: $bold-color;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: $avatar-size + 2 * $avatar-border + 16px;
+    }
 }
 
 .set-width {
@@ -62,4 +74,20 @@ a {
 
 #content {
     padding: 16px 0;
+}
+
+.command {
+    margin: 4px 0;
+    > strong {
+        color: $bold-color;
+    }
+}
+
+// helper classes
+.flex {
+    display: flex;
+    margin: auto;
+}
+.ml-auto {
+    margin-left: auto;
 }
