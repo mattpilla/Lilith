@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
+const extraCommands = require('./extra-commands.json');
+const events = require('./events.json');
 
 // get the readme template
 let readme = fs.readFileSync(path.resolve(__dirname, 'commands-template.md'), 'utf8');
@@ -15,13 +17,28 @@ const commandDocs = fs.readdirSync('./commands')
         let flags = `${command.adminOnly ? 'A' : ''}${command.guildOnly ? 'S' : ''}`;
         flags = flags ? `**[${flags}]** ` : ''; // list flags if available
         // list subcommands as indented bullets if they exist
-        const subcommands = command.subcommands ? command.subcommands.map(c => `\n\t- \`${c.name}\`: ${c.description}`).join('') : '';
+        const subcommands = command.subcommands ? command.subcommands.map(c => `\n    - \`${c.name}\`: ${c.description}`).join('') : '';
         return `- \`.${command.name}${usage}\`: ${flags}${command.description}${subcommands}`;
     })
     .join('\n');
 
+// get and format command docs that aren't from the commands directory
+const extraDocs = extraCommands.map(command => {
+        return `- \`${command.name}\`: ${command.description}`;
+    })
+    .join('\n');
+
+// get and format event docs
+const eventDocs = events.map(event => {
+        return `- \`${event.name}\`: ${event.description}`;
+    })
+    .join('\n');
+
 // add command docs to readme
-readme = readme.replace('!!!!', commandDocs);
+readme = readme
+    .replace('!!extra!!', extraDocs)
+    .replace('!!commands!!', commandDocs)
+    .replace('!!events!!', eventDocs);
 
 // save readme
 const generateAutoReadme = async filename => {

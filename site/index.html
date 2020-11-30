@@ -22,29 +22,37 @@
             <div class="set-width">
                 <div id="content">
                     <h2>Commands</h2>
-                    <div class="command">
-                        <strong>hey</strong> says hi
-                    </div>
                     <div
                         v-for="command in commands"
-                        :key="command.name"
                         class="command">
-                        <strong>{{command.name}}</strong>
-                        <span v-html="command.description"></span>
+                        <div class="command__title">.{{command.name}}</div>
+                        <div class="command__body">
+                            <span v-html="command.description"></span>
+                        </div>
+                    </div>
+                    <h3>Extra Commands</h3>
+                    <div
+                        v-for="command in extraCommands"
+                        class="command">
+                        <div class="command__title">{{command.name}}</div>
+                        <div class="command__body">
+                            <span v-html="command.description"></span>
+                        </div>
                     </div>
                     <h2>Events</h2>
-                    <div class="command">
-                        <strong>On user joining voice channel bot is in</strong> plays their entrance theme, if they have one
-                    </div>
-                    <div class="command">
-                        <strong>On user leaving voice channel bot is in</strong> plays a sound clip to say bye
+                    <div
+                        v-for="event in events"
+                        class="command">
+                        <div class="command__title">{{event.name}}</div>
+                        <div class="command__body">
+                            <span v-html="event.description"></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
-        <script src="https://unpkg.com/markdown-it@8.3.2/dist/markdown-it.min.js"></script>
-        <script src="commands.js"></script>
+        <script src="data.js"></script>
         <script src="app.js"></script>
         <noscript>welcome to the good version of this site</noscript>
     </body>

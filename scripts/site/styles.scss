@@ -27,9 +27,8 @@ a {
     }
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
     margin: 8px 0;
-    font-size: 1.5em;
     font-weight: bold;
     color: $bold-color;
 }
@@ -73,13 +72,23 @@ h2 {
 }
 
 #content {
-    padding: 16px 0;
+    padding: 24px 0;
 }
 
 .command {
-    margin: 4px 0;
-    > strong {
+    margin-bottom: 12px;
+    margin-left: 8px;
+    &:hover .command__body {
+        border-left-color: $primary;
+    }
+    &__title {
         color: $bold-color;
+        margin-bottom: 4px;
+    }
+    &__body {
+        padding: 4px 8px;
+        border-left: 2px solid grey;
+        transition: border-left-color .3s;
     }
 }
 
