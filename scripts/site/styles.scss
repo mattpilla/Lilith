@@ -4,6 +4,7 @@ $bg-color: #36393f;
 $color: #dcddde;
 $bold-color: #fff;
 $banner-bg-color: #202225;
+$code-bg-color: #333;
 
 html,
 body,
@@ -27,6 +28,16 @@ a {
     }
 }
 
+code {
+    font-family: 'Consolas', monospace;
+    font-size: .8rem;
+    background-color: $code-bg-color;
+    padding: 2px 4px;
+    display: inline-flex;
+    border-radius: 2px;
+    margin: 0 2px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: 8px 0;
     font-weight: bold;
@@ -46,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
     $avatar-border: 3px;
     .avatar {
         position: absolute;
-        top: 0;
+        top: 2px;
         height: $avatar-size;
         width: $avatar-size;
         border: $avatar-border solid $primary;
