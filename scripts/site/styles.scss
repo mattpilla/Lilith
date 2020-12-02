@@ -81,15 +81,31 @@ h1, h2, h3, h4, h5, h6 {
     &:hover .command__body {
         border-left-color: $primary;
     }
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+    }
     &__title {
         color: $bold-color;
-        margin-bottom: 4px;
     }
     &__body {
         padding: 4px 8px;
         border-left: 2px solid grey;
         transition: border-left-color .3s;
     }
+}
+
+.badge {
+    background-color: $primary;
+    color: $banner-bg-color;
+    border-radius: 2px;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 2px 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    cursor: help;
 }
 
 // helper classes

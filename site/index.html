@@ -25,7 +25,21 @@
                     <div
                         v-for="command in commands"
                         class="command">
-                        <div class="command__title">.{{command.name}}</div>
+                        <div class="command__header">
+                            <span class="command__title">.{{command.name}}</span>
+                            <span
+                                v-if="command.adminOnly"
+                                title="Only the bot's admins can use this command."
+                                class="badge">
+                                admin
+                            </span>
+                            <span
+                                v-if="command.guildOnly"
+                                title="This command can only be used in a server (not in DMs)."
+                                class="badge">
+                                server
+                            </span>
+                        </div>
                         <div class="command__body">
                             <span v-html="command.description"></span>
                         </div>
@@ -34,7 +48,7 @@
                     <div
                         v-for="command in extraCommands"
                         class="command">
-                        <div class="command__title">{{command.name}}</div>
+                        <div class="command__header">{{command.name}}</div>
                         <div class="command__body">
                             <span v-html="command.description"></span>
                         </div>
@@ -43,7 +57,7 @@
                     <div
                         v-for="event in events"
                         class="command">
-                        <div class="command__title">{{event.name}}</div>
+                        <div class="command__header">{{event.name}}</div>
                         <div class="command__body">
                             <span v-html="event.description"></span>
                         </div>

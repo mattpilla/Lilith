@@ -7,7 +7,7 @@ These commands are prefixed with `prefix` from `config.json` (assumed prefix of 
 **[S]** means the command can only be used in a server (not in DMs).\
 Indented commands are related to the command above it.\
 Refer to the README in the [commands](commands) directory for more info.
-- `.define <search term>`: Gives top definition of term from [Urban Dictionary](https://www.urbandictionary.com/)
+- `.define <search term>`: gives top definition of term from [Urban Dictionary](https://www.urbandictionary.com/)
 - `.gameclear`: **[AS]** deletes the role given by `.gameon` from the server
 - `.gameoff`: **[S]** removes the role given by `.gameon` from the user
 - `.gameon`: **[S]** gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)

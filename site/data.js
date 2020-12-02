@@ -1,7 +1,7 @@
 commands = [
     {
         "name": "define",
-        "description": "Gives top definition of term from <a href=\"https://www.urbandictionary.com/\">Urban Dictionary</a>",
+        "description": "gives top definition of term from <a href=\"https://www.urbandictionary.com/\">Urban Dictionary</a>",
         "usage": "<search term>"
     },
     {
