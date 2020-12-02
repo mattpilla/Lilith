@@ -6,6 +6,7 @@ const { openWeatherMapToken } = require('../auth.json');
 module.exports = {
     name: 'weather',
     description: 'if API key in `auth.json`, gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)',
+    userDescription: 'gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)',
     usage: '<US zip code>',
     examples: [
         '14127'

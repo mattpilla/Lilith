@@ -18,7 +18,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
-- `.roulette`: **[S]** play russian roulette without the threat of actually dying
+- `.roulette`: **[S]** starts a text-based game of russian roulette
     - `shoot`: when the game is active, this fires a shot. don't die!
 - `.stop`: **[S]** stops the currently playing audio
 - `.update`: **[A]** updates the bot with latest changes and restarts (if [running on a server](/README.md#running-on-a-server))
@@ -26,7 +26,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.yt <url of youtube video>`: **[S]** plays the audio of the given youtube video
 
 ## Events
-- `On bot initialize`: joins voice channels and messages channels specified in `config.json`
+- `On bot initialize`: joins voice channels and says hi in channels specified in `config.json`
 - `On user joining voice channel bot is in`: plays their entrance theme, if they have one
 - `On user leaving voice channel bot is in`: plays a sound clip to say bye
 

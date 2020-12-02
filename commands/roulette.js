@@ -58,7 +58,7 @@ const newGame = channel => {
 
 module.exports = {
     name: 'roulette',
-    description: 'play russian roulette without the threat of actually dying',
+    description: 'starts a text-based game of russian roulette',
     guildOnly: true,
     exact: true,
     subcommands: [{

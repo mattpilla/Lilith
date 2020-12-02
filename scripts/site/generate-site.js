@@ -19,17 +19,17 @@ const generateSiteData = async filename => {
     const commands = commandFiles.filter(file => file.endsWith('.js'))
         .map(file => {
             const command = require(`../../commands/${file}`);
-            command.description = md.renderInline(command.description);
+            command.description = md.renderInline(command.userDescription || command.description);
             delete command.validator;
             delete command.execute;
             return command;
         });
     extraCommands = extraCommands.map(command => {
-        command.description = md.renderInline(command.description);
+        command.description = md.renderInline(command.userDescription || command.description);
         return command;
     });
     events = events.map(event => {
-        event.description = md.renderInline(event.description);
+        event.description = md.renderInline(event.userDescription || event.description);
         return event;
     });
     const siteData = (

@@ -19,7 +19,8 @@ commands = [
     },
     {
         "name": "gameon",
-        "description": "gives user role specified by <code>gameRoleName</code> in <code>config.json</code> (and creates it if it doesn't exist)",
+        "description": "gives user role to signify they are available to game (and creates it if it doesn't exist)",
+        "userDescription": "gives user role to signify they are available to game (and creates it if it doesn't exist)",
         "guildOnly": true,
         "exact": true
     },
@@ -69,7 +70,7 @@ commands = [
     },
     {
         "name": "roulette",
-        "description": "play russian roulette without the threat of actually dying",
+        "description": "starts a text-based game of russian roulette",
         "guildOnly": true,
         "exact": true,
         "subcommands": [
@@ -87,13 +88,15 @@ commands = [
     },
     {
         "name": "update",
-        "description": "updates the bot with latest changes and restarts (if <a href=\"/README.md#running-on-a-server\">running on a server</a>)",
+        "description": "updates the bot with latest changes and restarts",
+        "userDescription": "updates the bot with latest changes and restarts",
         "adminOnly": true,
         "exact": true
     },
     {
         "name": "weather",
-        "description": "if API key in <code>auth.json</code>, gives current weather data for given zip code, using <a href=\"https://openweathermap.org/\">OpenWeather</a>",
+        "description": "gives current weather data for given zip code, using <a href=\"https://openweathermap.org/\">OpenWeather</a>",
+        "userDescription": "gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)",
         "usage": "<US zip code>",
         "examples": [
             "14127"
@@ -115,7 +118,8 @@ extraCommands = [
 events = [
     {
         "name": "On bot initialize",
-        "description": "joins voice channels and messages channels specified in <code>config.json</code>"
+        "description": "says hi in &quot;home&quot; channels and joins &quot;home&quot; voice channels",
+        "userDescription": "says hi in \"home\" channels and joins \"home\" voice channels"
     },
     {
         "name": "On user joining voice channel bot is in",
