@@ -5,6 +5,13 @@ $color: #dcddde;
 $bold-color: #fff;
 $banner-bg-color: #202225;
 $code-bg-color: #333;
+$grey-line-color: #808080;
+$highlight-speed: .3s;
+
+@mixin bold {
+    font-weight: bold;
+    color: $bold-color;
+}
 
 html,
 body,
@@ -39,9 +46,20 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    @include bold;
     margin: 8px 0;
-    font-weight: bold;
-    color: $bold-color;
+}
+
+ul {
+    margin: 0;
+    padding: 0 0 0 32px;
+    list-style-type: none;
+    > li:before {
+        display: inline-block;
+        content: "-";
+        width: 1rem;
+        margin-left: -1rem;
+    }
 }
 
 #app {
@@ -67,9 +85,8 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .name {
-        color: $bold-color;
+        @include bold;
         font-size: 1.2rem;
-        font-weight: bold;
         margin-left: $avatar-size + 2 * $avatar-border + 16px;
     }
 }
@@ -88,7 +105,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .command {
     margin-bottom: 12px;
-    margin-left: 8px;
     &:hover .command__body {
         border-left-color: $primary;
     }
@@ -102,8 +118,24 @@ h1, h2, h3, h4, h5, h6 {
     }
     &__body {
         padding: 4px 8px;
-        border-left: 2px solid grey;
-        transition: border-left-color .3s;
+        border-left: 2px solid $grey-line-color;
+        transition: border-left-color $highlight-speed;
+    }
+}
+
+.subcommand {
+    display: flex;
+    flex-direction: column;
+    &:hover .subcommand__title {
+        border-bottom-color: $primary;
+    }
+    &__title {
+        @include bold;
+        align-self: flex-start;
+        font-size: 0.8rem;
+        margin: 4px 0;
+        border-bottom: 2px solid $grey-line-color;
+        transition: border-bottom-color $highlight-speed;
     }
 }
 
