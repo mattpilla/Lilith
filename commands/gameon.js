@@ -3,6 +3,7 @@ const { gameRoleName, gameRoleColor } = require('../config.json');
 module.exports = {
     name: 'gameon',
     description: 'gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn\'t exist)',
+    userDescription: 'gives user role to signify they are available to game (and creates it if it doesn\'t exist)',
     guildOnly: true,
     exact: true,
     async execute(message, args) {

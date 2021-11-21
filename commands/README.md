@@ -1,17 +1,18 @@
 # Commands
 Message commands are placed in this directory, with the filename being `<command name>.js`.\
 Files export an object with the following:
-Property    | Type            | Optional | Default | Description
------------ | --------------- | -------- | ------- | -----------
-name        | string          | no       | none    | command name
-description | string          | no       | none    | command description for [COMMANDS.md](/COMMANDS.md)
-usage       | string          | yes      | none    | if `validator` fails, print this string after the command name to demonstrate usage
-examples    | array\<string\> | yes      | none    | if `validator` fails, print this list of example arguments
-guildOnly   | boolean         | yes      | false   | if true, command must not be sent via DM
-adminOnly   | boolean         | yes      | false   | if true, user must have the right permissions
-exact       | boolean         | yes      | false   | if true, requires that no arguments are given
-validator   | function        | yes      | none    | see below
-subcommands | array\<object\> | yes      | none    | see below
+Property        | Type            | Optional | Default | Description
+--------------- | --------------- | -------- | ------- | -----------
+name            | string          | no       | none    | command name
+description     | string          | no       | none    | command description for [COMMANDS.md](/COMMANDS.md)
+userDescription | string          | yes      | none    | an optional, more user-friendly description to be displayed for the help command
+usage           | string          | yes      | none    | if `validator` fails, print this string after the command name to demonstrate usage
+examples        | array\<string\> | yes      | none    | if `validator` fails, print this list of example arguments
+guildOnly       | boolean         | yes      | false   | if true, command must not be sent via DM
+adminOnly       | boolean         | yes      | false   | if true, user must have the right permissions
+exact           | boolean         | yes      | false   | if true, requires that no arguments are given
+validator       | function        | yes      | none    | see below
+subcommands     | array\<object\> | yes      | none    | see below
 
 An `execute` function must also be exported, which is the function the command executes. It has the following parameters:
 Parameter | Type   | Optional | Default | Description

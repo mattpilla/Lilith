@@ -1,0 +1,15 @@
+[
+    {
+        "name": "On bot initialize",
+        "description": "joins voice channels and says hi in channels specified in `config.json`",
+        "userDescription": "says hi in \"home\" channels and joins \"home\" voice channels"
+    },
+    {
+        "name": "On user joining voice channel bot is in",
+        "description": "plays their entrance theme, if they have one"
+    },
+    {
+        "name": "On user leaving voice channel bot is in",
+        "description": "plays a sound clip to say bye"
+    }
+]
