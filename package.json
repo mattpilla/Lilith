@@ -9,10 +9,12 @@
     "prod": "cross-env NODE_ENV=prod pm2 start lilith.js",
     "ci": "yarn && yarn copyfiles",
     "copyfiles": "node scripts/copyfiles",
-    "docs": "node scripts/auto-readme/auto-readme",
-    "update": "sh scripts/update.sh lilith",
-    "restart": "pm2 reload lilith",
-    "site": "node scripts/site/generate-site"
+    "readme": "node scripts/auto-readme/auto-readme",
+    "site": "node scripts/site/generate-site",
+    "deploy": "./scripts/site/deploy.sh",
+    "docs": "yarn readme && yarn site && yarn deploy",
+    "update": "./scripts/update.sh lilith",
+    "restart": "pm2 reload lilith"
   },
   "repository": {
     "type": "git",

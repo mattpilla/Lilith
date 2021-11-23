@@ -31,8 +31,10 @@
 - Assets aren't being tracked in this repo. Refer to the README in the [audio](audio) directory for more info.
 - `yarn ci` is the recommended way to update dependencies. It runs `yarn` and then `yarn copyfiles` afterwards.
 - `yarn copyfiles` takes keys that don't exist in `auth.example.json` and `config.example.json` and copies them into `auth.json` and `config.json`, respectively. It creates these files if they don't exist. This is run automatically after every `yarn ci`.
-- `yarn docs` generates the README for [COMMANDS.md](COMMANDS.md). You should run this whenever making changes to the commands.
-- `yarn site` generates the help site in the [site](site) directory. You should run this whenever making changes to the commands.
+- `yarn docs`: You should run this whenever making changes to the commands. It runs the following scripts:
+    - `yarn readme` generates the README for [COMMANDS.md](COMMANDS.md)
+    - `yarn site` generates the help site in the [site](site) directory
+    - `yarn deploy` pushes the help site to GitHub Pages. Modify [scripts/site/deploy.sh](scripts/site/deploy.sh) directly to change the remote destination.
 
 ## Running on a server
 Instead of using `yarn start` which restarts on file change and is suited for development, you can use [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) to host the bot.
