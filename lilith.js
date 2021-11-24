@@ -86,6 +86,7 @@ client.on('voiceStateUpdate', (old, current) => {
 });
 
 client.once('ready', () => {
+    client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
     voiceChannels.forEach(channel => {
         client.channels.fetch(channel).then(channel => channel.join());
     });
