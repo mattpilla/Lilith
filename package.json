@@ -11,9 +11,9 @@
     "copyfiles": "node scripts/copyfiles",
     "readme": "node scripts/auto-readme/auto-readme",
     "site": "node scripts/site/generate-site",
-    "deploy": "./scripts/site/deploy.sh",
+    "deploy": "bash scripts/site/deploy.sh",
     "docs": "yarn readme && yarn site && yarn deploy",
-    "update": "./scripts/update.sh lilith",
+    "update": "bash scripts/update.sh lilith",
     "restart": "pm2 reload lilith"
   },
   "repository": {
