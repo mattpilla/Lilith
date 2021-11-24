@@ -20,16 +20,19 @@ const generateSiteData = async filename => {
         .map(file => {
             const command = require(`../../commands/${file}`);
             command.description = md.renderInline(command.userDescription || command.description);
+            delete command.userDescription;
             delete command.validator;
             delete command.execute;
             return command;
         });
     extraCommands = extraCommands.map(command => {
         command.description = md.renderInline(command.userDescription || command.description);
+        delete command.userDescription;
         return command;
     });
     events = events.map(event => {
         event.description = md.renderInline(event.userDescription || event.description);
+        delete event.userDescription;
         return event;
     });
     const siteData = (

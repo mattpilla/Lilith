@@ -11,7 +11,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.gameclear`: **[AS]** deletes the role given by `.gameon` from the server
 - `.gameoff`: **[S]** removes the role given by `.gameon` from the user
 - `.gameon`: **[S]** gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn't exist)
-- `.help`: links to this page
+- `.help`: links to help webpage
 - `.inspiration`: posts an image generated from [InspiroBot](http://inspirobot.me)
 - `.join`: **[S]** joins your current voice channel and plays a sound clip
 - `.leave`: **[S]** plays a sound clip then exits voice

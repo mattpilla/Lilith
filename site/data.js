@@ -20,7 +20,6 @@ commands = [
     {
         "name": "gameon",
         "description": "gives user role to signify they are available to game (and creates it if it doesn't exist)",
-        "userDescription": "gives user role to signify they are available to game (and creates it if it doesn't exist)",
         "guildOnly": true,
         "exact": true
     },
@@ -89,14 +88,12 @@ commands = [
     {
         "name": "update",
         "description": "updates the bot with latest changes and restarts",
-        "userDescription": "updates the bot with latest changes and restarts",
         "adminOnly": true,
         "exact": true
     },
     {
         "name": "weather",
         "description": "gives current weather data for given zip code, using <a href=\"https://openweathermap.org/\">OpenWeather</a>",
-        "userDescription": "gives current weather data for given zip code, using [OpenWeather](https://openweathermap.org/)",
         "usage": "<US zip code>",
         "examples": [
             "14127"
@@ -118,8 +115,7 @@ extraCommands = [
 events = [
     {
         "name": "On bot initialize",
-        "description": "says hi in &quot;home&quot; channels and joins &quot;home&quot; voice channels",
-        "userDescription": "says hi in \"home\" channels and joins \"home\" voice channels"
+        "description": "says hi in &quot;home&quot; channels and joins &quot;home&quot; voice channels"
     },
     {
         "name": "On user joining voice channel bot is in",

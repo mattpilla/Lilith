@@ -7,5 +7,6 @@
     "gameRoleColor": "#c072fe",
     "rouletteTimeout": 120000,
     "voiceChannels": [],
-    "homeChannels": []
+    "homeChannels": [],
+    "siteURL": "https://mattpilla.github.io/Lilith"
 }
