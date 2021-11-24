@@ -21,60 +21,64 @@
                 </div>
             </div>
             <div class="set-width">
-                <div id="content">
-                    <h2>Commands</h2>
-                    <div
-                        v-for="command in commands"
-                        class="command">
-                        <div class="command__header">
-                            <span class="command__title">
-                                .{{command.name}} <i v-if="command.usage">{{command.usage}}</i>
-                            </span>
-                            <span
-                                v-if="command.adminOnly"
-                                title="Only the bot's admins can use this command."
-                                class="badge">
-                                admin
-                            </span>
-                            <span
-                                v-if="command.guildOnly"
-                                title="This command can only be used in a server (not in DMs)."
-                                class="badge">
-                                server
-                            </span>
+                <div class="content">
+                    <div class="content__section">
+                        <h2 class="primary-text">Commands</h2>
+                        <div
+                            v-for="command in commands"
+                            class="command">
+                            <div class="command__header">
+                                <span class="command__title">
+                                    .{{command.name}} <i v-if="command.usage">{{command.usage}}</i>
+                                </span>
+                                <span
+                                    v-if="command.adminOnly"
+                                    title="Only the bot's admins can use this command."
+                                    class="badge">
+                                    admin
+                                </span>
+                                <span
+                                    v-if="command.guildOnly"
+                                    title="This command can only be used in a server (not in DMs)."
+                                    class="badge">
+                                    server
+                                </span>
+                            </div>
+                            <div class="command__body">
+                                <span v-html="command.description"></span>
+                                <div v-if="command.subcommands" class="subcommand">
+                                    <span class="subcommand__title">subcommands</span>
+                                    <ul>
+                                        <li v-for="subcommand in command.subcommands">
+                                            <b>{{subcommand.name}}</b>: <span>{{subcommand.description}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="command__body">
-                            <span v-html="command.description"></span>
-                            <div v-if="command.subcommands" class="subcommand">
-                                <span class="subcommand__title">subcommands</span>
-                                <ul>
-                                    <li v-for="subcommand in command.subcommands">
-                                        <b>{{subcommand.name}}</b>: <span>{{subcommand.description}}</span>
-                                    </li>
-                                </ul>
+                        <h3 class="primary-text">Extra Commands</h3>
+                        <div
+                            v-for="command in extraCommands"
+                            class="command">
+                            <div class="command__header">
+                                <span class="command__title">{{command.name}}</span>
+                            </div>
+                            <div class="command__body">
+                                <span v-html="command.description"></span>
                             </div>
                         </div>
                     </div>
-                    <h3>Extra Commands</h3>
-                    <div
-                        v-for="command in extraCommands"
-                        class="command">
-                        <div class="command__header">
-                            <span class="command__title">{{command.name}}</span>
-                        </div>
-                        <div class="command__body">
-                            <span v-html="command.description"></span>
-                        </div>
-                    </div>
-                    <h2>Events</h2>
-                    <div
-                        v-for="event in events"
-                        class="command">
-                        <div class="command__header">
-                            <span class="command__title">{{event.name}}</span>
-                        </div>
-                        <div class="command__body">
-                            <span v-html="event.description"></span>
+                    <div class="content__section">
+                        <h2 class="primary-text">Events</h2>
+                        <div
+                            v-for="event in events"
+                            class="command">
+                            <div class="command__header">
+                                <span class="command__title">{{event.name}}</span>
+                            </div>
+                            <div class="command__body">
+                                <span v-html="event.description"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
