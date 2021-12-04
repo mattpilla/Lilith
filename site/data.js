@@ -1,5 +1,14 @@
 commands = [
     {
+        "name": "anime",
+        "description": "displays information of given anime, using <a href=\"https://anilist.gitbook.io/anilist-apiv2-docs/\">AniList API</a>",
+        "usage": "<search term>",
+        "examples": [
+            "cowboy bebop",
+            "fmab"
+        ]
+    },
+    {
         "name": "define",
         "description": "gives top definition of term from <a href=\"https://www.urbandictionary.com/\">Urban Dictionary</a>",
         "usage": "<search term>"

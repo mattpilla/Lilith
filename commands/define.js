@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 const { embedColor } = require('../config.json');
-const { MAX_LENGTH } = require('../helpers.js');
+const { truncateDescription } = require('../helpers.js');
 
 module.exports = {
     name: 'define',
@@ -28,14 +28,10 @@ module.exports = {
             return message.channel.send(errorMsg);
         }
         const result = data.list[0];
-        let definition = result.definition;
-        if (definition.length > MAX_LENGTH) {
-            definition = `${definition.substr(0, MAX_LENGTH - 3)}...`;
-        }
         const embed = new MessageEmbed()
             .setTitle(result.word)
             .setURL(result.permalink)
-            .setDescription(definition)
+            .setDescription(truncateDescription(result.definition))
             .addField('Example', `*${result.example}*`)
             .setFooter(`👍${result.thumbs_up} 👎${result.thumbs_down}`)
             .setColor(embedColor);
