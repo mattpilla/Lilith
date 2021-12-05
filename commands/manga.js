@@ -4,53 +4,54 @@ const { capitalizeText, htmlToMarkdown, truncateDescription } = require('../help
 
 const query = gql`
 query ($search: String) {
-    Media (search: $search, type: ANIME) {
-        title {
-            romaji
-            english
-            native
-        }
-        status
-        description(asHtml: false)
-        season
-        seasonYear
-        episodes
-        source
-        format
-        coverImage {
-            large
-            color
-        }
-        averageScore
-        nextAiringEpisode {
-            episode
-            timeUntilAiring
-        }
+  Media (search: $search, type: MANGA) {
+    title {
+      romaji
+      english
+      native
     }
+    format
+    status
+    description
+    chapters
+    volumes
+    source
+    startDate {
+        year
+        month
+    }
+    endDate {
+        year
+        month
+    }
+    coverImage {
+        large
+        color
+    }
+    averageScore
+  }
 }`;
 
-// converts seconds returned from API to:
-// on m/d/y (if >30 days)
-// in X days, Y hours (if >1 day)
-// in Y hours (otherwise)
-const convertAnimeTime = seconds => {
-    const hours = Math.floor((seconds / 60 / 60)) % 24;
-    const days = Math.floor(seconds / 60 / 60 / 24);
-    if (days > 30) {
-        const d = new Date();
-        d.setSeconds(d.getSeconds() + seconds);
-        return `on ${d.toLocaleDateString()}`;
+// converts start and end dates returned from API to:
+// Month (if available) Year to Month (if available) Year
+// end date will be "?" if unavailable
+const convertMangaDate = (startDate, endDate) => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const start = `${startDate.month ? `${months[startDate.month - 1]} ` : ''}${startDate.year}`;
+    let end = '?';
+    if (endDate.year) {
+        end = `${endDate.month ? `${months[endDate.month - 1]} ` : ''}${endDate.year}`;
     }
-    return `in ${days ? `${days} day${days === 1 ? '' : 's'}, ` : ''}${hours} hour${hours === 1 ? '' : 's'}`;
+    return `${start} to ${end}`;
 };
 
 module.exports = {
-    name: 'anime',
-    description: 'displays information of given anime, using [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/)',
+    name: 'manga',
+    description: 'displays information of given manga, using [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/)',
     usage: '<search term>',
     examples: [
-        'cowboy bebop',
-        'fmab'
+        'chainsaw man',
+        'mha'
     ],
     validator(args) {
         return args.length > 0;
@@ -77,13 +78,13 @@ module.exports = {
                 name: 'Status',
                 value: capitalizeText(media.status),
                 inline: true
-            }, ...(media.season ? [{
-                name: 'Season',
-                value: `${capitalizeText(media.season)} ${media.seasonYear}`,
+            }, ...(media.volumes ? [{
+                name: 'Volumes',
+                value: media.volumes,
                 inline: true
-            }]: []), ...(media.episodes ? [{
-                name: 'Episodes',
-                value: media.episodes,
+            }]: []), ...(media.chapters ? [{
+                name: 'Chapters',
+                value: media.chapters,
                 inline: true
             }]: []), {
                 name: 'Source',
@@ -93,9 +94,9 @@ module.exports = {
                 name: 'Format',
                 value: capitalizeText(media.format, ['TV', 'OVA', 'ONA']),
                 inline: true
-            }, ...(media.nextAiringEpisode ? [{
-                name: 'Next Airing Episode',
-                value: `Episode ${media.nextAiringEpisode.episode} airing ${convertAnimeTime(media.nextAiringEpisode.timeUntilAiring)}`,
+            }, ...(media.startDate.year ? [{
+                name: 'Published',
+                value: convertMangaDate(media.startDate, media.endDate),
                 inline: true
             }] : [])
         ];

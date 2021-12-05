@@ -54,6 +54,15 @@ commands = [
         "exact": true
     },
     {
+        "name": "manga",
+        "description": "displays information of given manga, using <a href=\"https://anilist.gitbook.io/anilist-apiv2-docs/\">AniList API</a>",
+        "usage": "<search term>",
+        "examples": [
+            "chainsaw man",
+            "mha"
+        ]
+    },
+    {
         "name": "poke",
         "description": "gives types, abilities, stats, and sprite of Pokémon, using <a href=\"https://pokeapi.co/\">PokéAPI</a>",
         "usage": "<Pokémon name or number>",

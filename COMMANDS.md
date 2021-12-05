@@ -16,6 +16,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.inspiration`: posts an image generated from [InspiroBot](http://inspirobot.me)
 - `.join`: **[S]** joins your current voice channel and plays a sound clip
 - `.leave`: **[S]** plays a sound clip then exits voice
+- `.manga <search term>`: displays information of given manga, using [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/)
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
