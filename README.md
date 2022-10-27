@@ -1,5 +1,5 @@
 # Lilith
-> Highly custom bot made with [discord.js](https://discord.js.org/#/) meant to succeed my current bot, [Mikkayla](https://github.com/mattpilla/Mikkayla)
+> Highly custom bot made with [discord.js](https://discord.js.org/#/) succeeding my old bot, [Mikkayla](https://github.com/mattpilla/Mikkayla)
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/en/) v12.0 or higher
