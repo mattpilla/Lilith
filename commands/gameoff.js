@@ -4,7 +4,7 @@ module.exports = {
     name: 'gameoff',
     description: 'removes the role given by `.gameon` from the user',
     guildOnly: true,
-    exact: true,
+    exact: false,
     async execute(message, args) {
         const role = message.member.roles.cache.find(role => role.name === gameRoleName);
         if (role) {

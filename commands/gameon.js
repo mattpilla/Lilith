@@ -5,7 +5,7 @@ module.exports = {
     description: 'gives user role specified by `gameRoleName` in `config.json` (and creates it if it doesn\'t exist)',
     userDescription: 'gives user role to signify they are available to game (and creates it if it doesn\'t exist)',
     guildOnly: true,
-    exact: true,
+    exact: false,
     async execute(message, args) {
         let role = message.guild.roles.cache.find(role => role.name === gameRoleName);
         if (!role) {
