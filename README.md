@@ -4,6 +4,7 @@
 ## Prerequisites
 - [Node.js](https://nodejs.org/en/) v12.0 or higher
 - [Yarn](https://yarnpkg.com/)
+- (optional) [Libtool](https://www.gnu.org/software/libtool/) may be needed for voice, specifically for building the `sodium` dependency
 
 ## Setup
 - Create your bot at https://discord.com/developers/applications/ and copy the bot's token
