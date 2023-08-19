@@ -7,12 +7,17 @@ const MAX_DESCRIPTION_LENGTH = 4096;
 
 // converts "TEXT_LIKE_THIS" to "Text Like This"
 // can pass in exceptions like "TV" to ignore
-exports.capitalizeText = (str, exceptions = []) => str.split('_').map(w => {
-    if (exceptions.includes(w)) {
-        return w;
+exports.capitalizeText = (str, exceptions = [], fallback = '(unknown)') => {
+    if (!str) {
+        return fallback;
     }
-    return w[0].toUpperCase() + w.substr(1).toLowerCase();
-}).join(' ');
+    return str.split('_').map(w => {
+        if (exceptions.includes(w)) {
+            return w;
+        }
+        return w[0].toUpperCase() + w.substr(1).toLowerCase();
+    }).join(' ');
+};
 
 // instance to translate html into markdown
 exports.htmlToMarkdown = new NodeHtmlMarkdown();
