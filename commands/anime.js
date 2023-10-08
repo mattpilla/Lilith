@@ -17,6 +17,11 @@ query ($search: String) {
         episodes
         source
         format
+        studios(isMain: true) {
+            nodes {
+                name
+            }
+        }
         coverImage {
             large
             color
@@ -72,6 +77,10 @@ module.exports = {
         if (title && media.title.romaji && media.title.romaji.toLowerCase() !== title.toLowerCase()) {
             title = `${title} (${media.title.romaji})`;
         }
+        let studios = null;
+        if (media.studios && media.studios.nodes) {
+            studios = media.studios.nodes.map(studio => studio.name);
+        }
         const fields = [
             {
                 name: 'Status',
@@ -84,6 +93,10 @@ module.exports = {
             }]: []), ...(media.episodes ? [{
                 name: 'Episodes',
                 value: media.episodes,
+                inline: true
+            }]: []), ...(studios ? [{
+                name: studios.length === 1 ? 'Studio' : 'Studios',
+                value: studios.join(', '),
                 inline: true
             }]: []), {
                 name: 'Source',
@@ -101,7 +114,7 @@ module.exports = {
         ];
         const embed = new MessageEmbed()
             .setTitle(title)
-            .setDescription(truncateDescription(htmlToMarkdown.translate(media.description)))
+            .setDescription(truncateDescription(htmlToMarkdown.translate(media.description || '')))
             .addFields(fields)
             .setImage(media.coverImage.large)
             .setColor(media.coverImage.color);
