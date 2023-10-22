@@ -24,13 +24,13 @@ commands = [
         "name": "gameoff",
         "description": "removes the role given by <code>.gameon</code> from the user",
         "guildOnly": true,
-        "exact": true
+        "exact": false
     },
     {
         "name": "gameon",
         "description": "gives user role to signify they are available to game (and creates it if it doesn't exist)",
         "guildOnly": true,
-        "exact": true
+        "exact": false
     },
     {
         "name": "help",
@@ -69,6 +69,14 @@ commands = [
         "examples": [
             "bulbasaur",
             "1"
+        ]
+    },
+    {
+        "name": "poll",
+        "description": "creates a simple poll with 2-9 options",
+        "usage": "<question> <option 1> ... <option n> (separate terms by wrapping in quotes)",
+        "examples": [
+            "\"best color?\" \"purple\" \"teal\""
         ]
     },
     {

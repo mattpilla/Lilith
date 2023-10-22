@@ -18,6 +18,7 @@ Refer to the README in the [commands](commands) directory for more info.
 - `.leave`: **[S]** plays a sound clip then exits voice
 - `.manga <search term>`: displays information of given manga, using [AniList API](https://anilist.gitbook.io/anilist-apiv2-docs/)
 - `.poke <Pokémon name or number>`: gives types, abilities, stats, and sprite of Pokémon, using [PokéAPI](https://pokeapi.co/)
+- `.poll <question> <option 1> ... <option n> (separate terms by wrapping in quotes)`: creates a simple poll with 2-9 options
 - `.random <positive integer greater than 1>`: gives a random number up to and including the given int
 - `.restart`: **[A]** restarts the bot
 - `.roulette`: **[S]** starts a text-based game of russian roulette
