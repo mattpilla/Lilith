@@ -10,7 +10,7 @@ cd site;
 git init;
 git add -A;
 if git commit -m "deploy" ; then
-    git push -f git@github.com:mattpilla/Lilith.git master:gh-pages;
+    git push -f git@github.com:mattpilla/Lilith.git main:gh-pages;
 
     echo "site deployed";
 else
