@@ -11,7 +11,7 @@ module.exports = {
             .setTitle('Lilith Help Site')
             .setURL(siteURL)
             .setDescription('command usage guide')
-            .setThumbnail(`${siteURL}/avatar.PNG`)
+            .setThumbnail(`${siteURL}/avatar.png`)
             .setColor(embedColor);
         message.channel.send(embed);
     }
